@@ -8,7 +8,6 @@ The end product is final website deployment.
 * Evidently + Streamlit to show the main report 
 * Data profile? pandas_data_profiling?
 
-# ----------------------------------------------------- #
 
 ### Streamlit website 
 
@@ -36,14 +35,13 @@ can I do this ? if prefect is running show running
     |               |                                         |
     #---------------|-----------------------------------------#
 
-# ----------------------------------------------------- #
+
 
 There is three Database.
 * This is for evidently database prograsql -> store report file
 * MLflow database sql_lite -> store mlfile 
 * Prefect database sql_lite -> store process file
 
-# ----------------------------------------------------- #
 
 Others thing that I like to add
 * how about create the class that can call varible easily
@@ -52,6 +50,4 @@ Others thing that I like to add
 * Make file , setup and bash file. 
 * CI/CD precommit 
 * Docker and make file and also bash script.
-
-# ----------------------------------------------------- #
 
