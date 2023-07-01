@@ -1,3 +1,4 @@
 Data/
 mlruns/
 *__pycache__/
+.gitignore
