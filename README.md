@@ -1,4 +1,17 @@
 
+### Pipeline TODO list
+[x] UI draft
+[x] prepare dataset from sqlite
+[x] add pandas profiling from dataset (use html to reduce using resources)
+[x] add mlflow page and reload
+[ ] add evidently report
+[ ] make bash script file
+[ ] create make file
+[ ] add to docker
+[ ] add testing 
+[ ] add ci/cd pipeline
+
+
 ## ETL CI/CD fraud detection website project
 
 The end product is the final website deployment.
