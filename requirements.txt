@@ -6,5 +6,5 @@ evidently
 mlflow
 scikit-learn
 pandas-profiling
-streamlit-pandas_profiling
+streamlit-pandas-profiling
 

@@ -6,3 +6,7 @@ run :
 
 	# run streamlit 
 	streamlit run main.py
+
+setup:
+	#install python library
+	pip install -r requirements.txt
