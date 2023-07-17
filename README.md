@@ -5,12 +5,12 @@
 [x] add pandas profiling from the dataset (use HTML to reduce using resources)
 [x] add mlflow page and reload
 [x] add evidently report
-[ ] make bash script file
-[ ] create make file
+[ ] make bash script file (focus on make file)
+[x] create make file
 [ ] add to docker
 [ ] add testing 
-[ ] add ci/cd pipeline
-[ ] add prefect to orchestrate
+[ ] add ci/cd pipeline 
+[ ] add prefect to orchestrate (further study)
 
 
 ## ETL CI/CD fraud detection website project
@@ -52,9 +52,9 @@ can I do this? if prefect is running, show that is running
 
 
 There is three Database.
-* This is for evidently database prograsql -> store report file
+* This is for evidently database prograsql -> store report file (different solution html file)
 * MLflow database sql_lite -> store mlfile
-* Prefect database sql_lite -> store process file
+* Prefect database sql_lite -> store process file (further study)
   
 Another thing that I like to add
 * how about creating a class that can call variables easily
