@@ -98,7 +98,7 @@ with st.container():
 
 with st.container(): # Evidently report
     st.write("---")
-    st.header("Evidently AI report")
+    st.header("Evidently AI report") 
     with st.container():
         if train_button:
             show_on_evidently_section(return_model)
