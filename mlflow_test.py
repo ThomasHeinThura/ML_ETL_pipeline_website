@@ -3,7 +3,7 @@ import mlflow
 import streamlit as st
 
 # Connect to MLflow SQLite backend
-conn = sqlite3.connect("sqlite:///your_mlflow_database.db")
+conn = sqlite3.connect("sqlite:///backend.db")
 
 # Retrieve model value from MLflow
 experiment_id = "your_experiment_id"

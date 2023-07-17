@@ -92,8 +92,8 @@ class Database():
         # fraud_false = pd.read_sql_query(query, conn, params=[False]).sample(n=sample_size, random_state=42).reset_index(drop=True)
         
         # don't random the datset bz pandas profiling take time. 
-        fraud_true = pd.read_sql_query(query, conn, params=[True])
-        fraud_false = pd.read_sql_query(query, conn, params=[False])
+        fraud_true = pd.read_sql_query(query, conn, params=[True]).sample(n=sample_size).reset_index(drop=True)
+        fraud_false = pd.read_sql_query(query, conn, params=[False]).sample(n=sample_size).reset_index(drop=True)
 
         # Close the database connection
         conn.close()
