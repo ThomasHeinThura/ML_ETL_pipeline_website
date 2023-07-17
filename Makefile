@@ -2,7 +2,7 @@
 
 run :
 	# run mlflow 
-	mlflow server --backend-store-uri sqlite:///reports/backend.db &
+	mlflow server --backend-store-uri sqlite:///reports/backend.db --host 127.0.0.1:5000 &
 
 	# run streamlit 
 	streamlit run main.py

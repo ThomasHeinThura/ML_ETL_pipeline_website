@@ -2,7 +2,8 @@
 import streamlit as st
 from dataset_prepare import Database
 
-import pandas_profiling
+# import pandas_profiling
+from ydata_profiling import ProfileReport as profile_report
 from streamlit_pandas_profiling import st_profile_report
 import streamlit.components.v1 as components
 

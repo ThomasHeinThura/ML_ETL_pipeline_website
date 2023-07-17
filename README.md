@@ -12,7 +12,6 @@
 [ ] add ci/cd pipeline 
 [ ] add prefect to orchestrate (further study)
 
-
 ## ETL CI/CD fraud detection website project
 
 The end product is the final website deployment.
@@ -68,3 +67,4 @@ Another thing that I like to add
 1. model monitoring
 2. prefetct 
 3. automation
+
