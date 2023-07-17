@@ -12,16 +12,8 @@ from streamlit_function import show_on_mlflow_section
 
 
 from model import build_model
+from streamlit_autorefresh import st_autorefresh
 
-
-# import pandas 
-# import numpy
-# import evidently
-
-# import prefect 
-# import os 
-
-# log config
 
 ### Streamlit website 
 
@@ -87,7 +79,8 @@ with st.container():
                 )
             
         with st.container(): # Train model
-            if st.button("Train the model"):
+            train_button = st.button("Train the model")
+            if train_button:
                 train_button_action(model[model_select])
 
 
@@ -96,6 +89,8 @@ with st.container():
                 
 
     with left_col: # MFlow model view section
+        if train_button:
+            st.write("---")
         with st.container():
             show_on_mlflow_section()
 

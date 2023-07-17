@@ -11,7 +11,10 @@ from model import evaluate_model
 
 from os.path import exists
 
-
+import mlflow
+from mlflow import MlflowClient
+from mlflow.entities import ViewType
+from mlflow.models.signature import infer_signature
 
 # ----------------------------------------------------- #
 
@@ -26,75 +29,30 @@ def train_button_action(model,):
     and show pandas profiling and 
     according to the model selection
     """
-    st.write("This is train_data")
-    st.write(f"The train model is {model}")
-    # st.dataframe(Database_website.train_data)
-    # Database_website.train_data
-    
-    # train the model 
-    with st.spinner('Model is trian'):
-        model.fit(
-        Database_website.train_data.drop(label, axis=1).to_numpy(),
-        Database_website.train_data[label].to_numpy())
-    
-    # evaluate the model 
-    with st.spinner("Evaluate the model with ref data"):
-        # pred = model.predict(Database_website.valid_ref_data.drop(label, axis=1).to_numpy())
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    with mlflow.start_run(nested=True):
+        # train the model 
+        with st.spinner('Model is trian'):
+            model.fit(
+            Database_website.train_data.drop(label, axis=1).to_numpy(),
+            Database_website.train_data[label].to_numpy())
         
-        base_score   = model.score(
-            Database_website.valid_ref_data.drop(label, axis=1).to_numpy(),
-            Database_website.valid_ref_data[label])
-        
-        eval_metrics(
-            model, 
-            Database_website.valid_ref_data.drop(label, axis=1).to_numpy(),
-            Database_website.valid_ref_data[label],
-            'weighted'
-                     )
-        
-        st.write(f'The base score is : {base_score}')
-    
-    # add data to mlflow  sql and show
-    
-    # show_on_mlflow_section()
+        # evaluate the model 
+        with st.spinner("Evaluate the model with ref data"):
+            base_score,accuracy,precision,recall,f1score,matrix_scores = eval_metrics(
+                model, 
+                Database_website.valid_ref_data.drop(label, axis=1).to_numpy(),
+                Database_website.valid_ref_data[label],
+                'weighted')
 
+            mlflow.log_param("Model"           , model)
+            mlflow.log_metric("base_score"     , base_score)
+            mlflow.log_metric("accuracy"       , accuracy)
+            mlflow.log_metric("av_precision"   , precision)
+            mlflow.log_metric("recall"         , recall)
+            mlflow.log_metric("f1"             , f1score)
+            mlflow.log_params(matrix_scores)
 
-
-# This section is removed bz predict model need to save model
-
-# def predict_button_action(model,):
-#     """
-#     This action will predict the dataset
-#     according to the model selection
-#     """
-    
-#     # load_predict_model = model
-#     st.write("This is Test and current data")
-#     st.write(f'The predict model is {model}')
-
-#     # st.dataframe(Database_website.current_data)
-    
-#     # base_score = model.score(
-#     #     Database_website.current_data.drop(label, axis=1).to_numpy(),
-#     #     Database_website.current_data[label]
-#     # )
-    
-#     # st.write(f"The base score is : {base_score}")
-    
-#     pass
-    
-
-# This section is also removed bz it takes a lot time to adjust
-
-# def custom_button_action():
-#     """
-#     This will allow to fill custom data
-#     and predict using custom data
-#     """
-#     st.write("This is custom data")
-#     with st.spinner("Train all model"):
-#         evaluate_model()
-#     pass
 
 # left column
 def show_on_mlflow_section():
@@ -157,10 +115,6 @@ def show_on_pandas_profiling():
                 profile_report = Database_website.current_data.profile_report()
                 profile_report.to_file(f"reports/pandas/current_data.html")
                 st_profile_report(profile_report)
-            
-
-        else :
-            st.write("Select the dataset")
         
     
     
