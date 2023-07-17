@@ -10,7 +10,6 @@ from streamlit_function import show_on_mlflow_section
 from streamlit_function import show_on_evidently_section
 
 from model import build_model
-from streamlit_autorefresh import st_autorefresh
 
 
 ### Streamlit website 

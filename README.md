@@ -64,3 +64,7 @@ Another thing that I like to add
 * CI/CD precommit 
 * Docker and make file and also bash script.
 
+#### Further adding
+1. model monitoring
+2. prefetct 
+3. automation
