@@ -10,13 +10,14 @@
 [ ] add to docker
 [ ] add testing 
 [ ] add ci/cd pipeline
+[ ] add prefect to orchestrate
 
 
 ## ETL CI/CD fraud detection website project
 
 The end product is the final website deployment.
-* Using Scikit-learn, xgb-boost and many models to train. ( I want to add an ensemble model)
-* Prefect to orchestrate the whole project 
+* Using Scikit-learn models to train. ( I want to add an ensemble model)
+* Prefect to orchestrate the whole project (it is hard to add but I will try)
 * MLFLow + Streamlit to show the train model score
 * Evidently + Streamlit shows the main report 
 * Data profile? pandas_data_profiling?
