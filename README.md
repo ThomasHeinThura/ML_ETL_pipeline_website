@@ -1,16 +1,16 @@
 
 ### Pipeline TODO list
-[x] UI draft
-[x] prepare dataset from sqlite
-[x] add pandas profiling from the dataset (use HTML to reduce using resources)
-[x] add mlflow page and reload
-[x] add evidently report
-[ ] make bash script file (focus on make file)
-[x] create make file
-[ ] add to docker
-[ ] add testing 
-[ ] add ci/cd pipeline 
-[ ] add prefect to orchestrate (further study)
+- [x] UI draft
+- [x] prepare dataset from sqlite
+- [x] add pandas profiling from the dataset (use HTML to reduce using resources)
+- [x] add mlflow page and reload
+- [x] add evidently report
+- [ ] make bash script file (focus on make file)
+- [x] create make file
+- [ ] add to docker
+- [ ] add testing 
+- [ ] add ci/cd pipeline 
+- [ ] add prefect to orchestrate (further study)
 
 ## ETL CI/CD fraud detection website project
 
