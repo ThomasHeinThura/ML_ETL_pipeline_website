@@ -2,9 +2,9 @@
 ### Pipeline TODO list
 [x] UI draft
 [x] prepare dataset from sqlite
-[x] add pandas profiling from dataset (use html to reduce using resources)
+[x] add pandas profiling from the dataset (use HTML to reduce using resources)
 [x] add mlflow page and reload
-[ ] add evidently report
+[x] add evidently report
 [ ] make bash script file
 [ ] create make file
 [ ] add to docker

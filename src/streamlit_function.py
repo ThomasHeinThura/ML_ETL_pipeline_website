@@ -15,6 +15,9 @@ from mlflow import MlflowClient
 from mlflow.entities import ViewType
 from mlflow.models.signature import infer_signature
 
+
+from data_monitor import fit_and_save_report
+
 # ----------------------------------------------------- #
 
 Database_website = Database()
@@ -22,7 +25,7 @@ Database_website = Database()
 label = ['fraud_bool']
 
 # Streamlit function 
-def train_button_action(model,):
+def train_button_action(model):
     """
     This action will train the dataset 
     and show pandas profiling and 
@@ -51,6 +54,8 @@ def train_button_action(model,):
             mlflow.log_metric("recall"         , recall)
             mlflow.log_metric("f1"             , f1score)
             mlflow.log_params(matrix_scores)
+            
+            return model
 
 # ----------------------------------------------------- #
 
@@ -78,7 +83,7 @@ def show_on_pandas_profiling():
 
     with st.spinner("Start profiling it might take some time"):
         width = 650
-        height = 600
+        height = 650
         
         if selected_box == "train_data":
             # if there is no profile report create profile report 
@@ -118,11 +123,16 @@ def show_on_pandas_profiling():
 # ----------------------------------------------------- #
 
 # left column
-def show_on_evidently_section():
+def show_on_evidently_section(return_model):
     """
     This will show on evidently section
     """
-    st.write("This is from streamlit_funciton")
+    st.write(f"Models check for data drift : {return_model}")
+    fit_and_save_report(return_model, Database_website.valid_ref_data, Database_website.current_data, label)
+    
+    
+    
+    
     pass 
 
 # ----------------------------------------------------- #

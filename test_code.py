@@ -64,6 +64,7 @@ train_button = None
 model_select = None 
 ref_dataset = None
 current_dataset = None
+return_model = None
 
 
 with st.container():
@@ -79,7 +80,7 @@ with st.container():
         with st.container(): # Train model
             train_button = st.button("Train the model")
             if train_button:
-                train_button_action(model[model_select])
+                return_model = train_button_action(model[model_select])
 
         # ----------------------------------------------------- #
         with st.container(): # pandas profiling
@@ -91,14 +92,13 @@ with st.container():
             # st.write("---")
             pass
         with st.container():
+            st.header("MLFlow Models and Scores")
             show_on_mlflow_section()
 # ----------------------------------------------------- #                    
 
 with st.container(): # Evidently report
     st.write("---")
+    st.header("Evidently AI report")
     with st.container():
-        # st.selectbox("Report viewer")
-        st.write("This is Evidently report")
-        show_on_evidently_section()
         if train_button:
-            st.write("Relaod Evidently report")
+            show_on_evidently_section(return_model)

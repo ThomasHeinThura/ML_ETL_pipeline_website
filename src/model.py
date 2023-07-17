@@ -45,23 +45,23 @@ def build_model():
 
     model = {
         "Logistic Regression": LogisticRegression(),                    #
-        "Support Vector Classifier": SVC(),                             # Ridge, SVC, LinearSVC, Passive_AC
+        # "Support Vector Classifier": SVC(),                           # Ridge, SVC, LinearSVC, Passive_AC
         "Decision Tree": DecisionTreeClassifier(max_depth=6),           #
         "KNearest": KNeighborsClassifier(n_neighbors=5),                # doesn't have model.predict_proba so I left out.
         "GaussianNB" : GaussianNB(),                                    #
         "LDA" : LinearDiscriminantAnalysis(),                           # 
-        "Ridge" : RidgeClassifier(),                                    #  
+        # "Ridge" : RidgeClassifier(),                                  #  
         "QDA" : QuadraticDiscriminantAnalysis(),                        #
         "Bagging" : BaggingClassifier(),                                #
         "MLP" : MLPClassifier(),                                        #
-        "LSVC" : LinearSVC(),                                           #  
+        # "LSVC" : LinearSVC(),                                         #  
         "BernoulliNB" : BernoulliNB(),                                  #  
-        "Passive_AC" : PassiveAggressiveClassifier(),                   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
+        # "Passive_AC" : PassiveAggressiveClassifier(),                 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
         "SGB"     : GradientBoostingClassifier(n_estimators=100, random_state=9),
         "Adaboost" : AdaBoostClassifier(n_estimators=100, random_state=9, algorithm='SAMME.R', learning_rate=0.8),
         "Extra_T" : ExtraTreesClassifier(n_estimators=100, max_features=3),
         "R_forest" : RandomForestClassifier(max_samples=0.9, n_estimators=100, max_features=3),
-        # "XGB" : xgb.XGBClassifier(max_depth=3, n_estimators=300, learning_rate=0.05),
+        # "XGB" : xgb.XGBClassifier(max_depth=3, n_estimators=300, learning_rate=0.05), # cannot train
         "Stacking" : stacking_model
     }
     return model 
@@ -72,7 +72,6 @@ def eval_metrics(classifier, test_features, test_labels, avg_method):
     
     # make prediction
     predictions   = classifier.predict(test_features)
-    # dataset["predictions"] = predictions
     base_score   = classifier.score(test_features,test_labels)
     accuracy = accuracy_score(test_labels, predictions)
     precision = precision_score(test_labels, predictions, average=avg_method)
