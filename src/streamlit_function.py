@@ -7,7 +7,6 @@ from streamlit_pandas_profiling import st_profile_report
 import streamlit.components.v1 as components
 
 from model import eval_metrics
-from model import evaluate_model
 
 from os.path import exists
 
@@ -60,9 +59,7 @@ def show_on_mlflow_section():
     This will show on mlflow section
     take data from MLFlow sql
     """
-    
     components.iframe("http://127.0.0.1:5000/", width=1350, height=800, scrolling=True)
-    pass
 
 # right column
 def show_on_pandas_profiling():

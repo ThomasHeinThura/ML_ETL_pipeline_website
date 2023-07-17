@@ -5,8 +5,6 @@ import sys
 sys.path.append("src")
 
 from streamlit_function import train_button_action
-# from streamlit_function import predict_button_action
-# from streamlit_function import custom_button_action
 from streamlit_function import show_on_pandas_profiling
 from streamlit_function import show_on_mlflow_section
 
@@ -60,16 +58,13 @@ st.markdown(
 )
 
 model = build_model()
-
 train_button = None
-custom_button = None
 model_select = None 
 ref_dataset = None
 current_dataset = None
 
 with st.container():
     right_col, left_col = st.columns([1,2])
-    
     
     with right_col: # Train and pandas profilingS
         with st.container(): #Select model to train
@@ -90,13 +85,14 @@ with st.container():
 
     with left_col: # MFlow model view section
         if train_button:
-            st.write("---")
+            # st.write("---")
+            pass
         with st.container():
             show_on_mlflow_section()
 
                     
 
-with st.container():
+with st.container(): # Evidently report
     st.write("---")
     with st.container():
         # st.selectbox("Report viewer")
