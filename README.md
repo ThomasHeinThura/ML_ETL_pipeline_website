@@ -64,7 +64,7 @@ Another thing that I like to add
 * Docker and make file and also bash script.
 
 #### Further adding
-1. model monitoring
+1. model monitoring and fine tuning
 2. prefetct 
 3. automation
 
