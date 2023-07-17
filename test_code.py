@@ -7,7 +7,7 @@ sys.path.append("src")
 from streamlit_function import train_button_action
 from streamlit_function import show_on_pandas_profiling
 from streamlit_function import show_on_mlflow_section
-
+from streamlit_function import show_on_evidently_section
 
 from model import build_model
 from streamlit_autorefresh import st_autorefresh
@@ -56,12 +56,15 @@ st.markdown(
 </style>
     """,unsafe_allow_html=True,
 )
+# ----------------------------------------------------- #
 
+# basic config
 model = build_model()
 train_button = None
 model_select = None 
 ref_dataset = None
 current_dataset = None
+
 
 with st.container():
     right_col, left_col = st.columns([1,2])
@@ -72,30 +75,30 @@ with st.container():
                 "Select model to train",
                 (model.keys())
                 )
-            
+        # ----------------------------------------------------- #
         with st.container(): # Train model
             train_button = st.button("Train the model")
             if train_button:
                 train_button_action(model[model_select])
 
-
+        # ----------------------------------------------------- #
         with st.container(): # pandas profiling
             show_on_pandas_profiling()
                 
-
+# ----------------------------------------------------- #
     with left_col: # MFlow model view section
         if train_button:
             # st.write("---")
             pass
         with st.container():
             show_on_mlflow_section()
-
-                    
+# ----------------------------------------------------- #                    
 
 with st.container(): # Evidently report
     st.write("---")
     with st.container():
         # st.selectbox("Report viewer")
         st.write("This is Evidently report")
+        show_on_evidently_section()
         if train_button:
             st.write("Relaod Evidently report")

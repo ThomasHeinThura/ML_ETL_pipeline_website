@@ -52,6 +52,7 @@ def train_button_action(model,):
             mlflow.log_metric("f1"             , f1score)
             mlflow.log_params(matrix_scores)
 
+# ----------------------------------------------------- #
 
 # left column
 def show_on_mlflow_section():
@@ -60,6 +61,7 @@ def show_on_mlflow_section():
     take data from MLFlow sql
     """
     components.iframe("http://127.0.0.1:5000/", width=1350, height=800, scrolling=True)
+# ----------------------------------------------------- #
 
 # right column
 def show_on_pandas_profiling():
@@ -113,14 +115,14 @@ def show_on_pandas_profiling():
                 profile_report.to_file(f"reports/pandas/current_data.html")
                 st_profile_report(profile_report)
         
-    
-    
+# ----------------------------------------------------- #
 
 # left column
 def show_on_evidently_section():
     """
     This will show on evidently section
     """
+    st.write("This is from streamlit_funciton")
     pass 
 
 # ----------------------------------------------------- #
