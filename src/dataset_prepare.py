@@ -87,9 +87,13 @@ class Database():
                 FROM Clean_data
                 WHERE fraud_bool = ?
             """
-
-        fraud_true = pd.read_sql_query(query, conn, params=[True]).sample(n=sample_size, random_state=42).reset_index(drop=True)
-        fraud_false = pd.read_sql_query(query, conn, params=[False]).sample(n=sample_size, random_state=42).reset_index(drop=True)
+        # random the dataset 
+        # fraud_true = pd.read_sql_query(query, conn, params=[True]).sample(n=sample_size, random_state=42).reset_index(drop=True)
+        # fraud_false = pd.read_sql_query(query, conn, params=[False]).sample(n=sample_size, random_state=42).reset_index(drop=True)
+        
+        # don't random the datset bz pandas profiling take time. 
+        fraud_true = pd.read_sql_query(query, conn, params=[True])
+        fraud_false = pd.read_sql_query(query, conn, params=[False])
 
         # Close the database connection
         conn.close()
@@ -121,9 +125,10 @@ class Database():
         
         fraud_dataset = pd.concat((fraud_true, fraud_false), axis=0)
         
-        train_data, ref_current_data = train_test_split(fraud_dataset, test_size = 0.5, random_state = 42)
+        # remove  random_state = 42 bz it make fix python profiling 
+        train_data, ref_current_data = train_test_split(fraud_dataset, test_size = 0.5)
         
-        ref_data, current_data = train_test_split(ref_current_data, test_size = 0.5, random_state = 42)
+        ref_data, current_data = train_test_split(ref_current_data, test_size = 0.5)
         
         
         return train_data, ref_data, current_data
