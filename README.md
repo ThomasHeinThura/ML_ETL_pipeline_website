@@ -7,11 +7,15 @@
 - [x] add evidently report
 - [ ] make bash script file (focus on make file)
 - [x] create make file
-- [ ] add to docker
+- [x] add to docker
 - [ ] add testing 
 - [ ] add ci/cd pipeline 
 - [ ] add prefect to orchestrate (further study)
 
+### known error
+* Bz of insuffient knowledge on docker there is error in mlflow bz localhost and host are umatched.
+* Therefore add --host docker netwrok in Makefile in make run like : 
+    `mlflow server --backend-store-uri sqlite:///reports/backend.db --host 172.8.0.2:5000 &`
 ## ETL CI/CD fraud detection website project
 
 The end product is the final website deployment.
