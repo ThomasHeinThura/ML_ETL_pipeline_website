@@ -66,7 +66,7 @@ def show_on_mlflow_section():
     This will show on mlflow section
     take data from MLFlow sql
     """
-    components.iframe("http://127.0.0.1:5000/", width=1350, height=800, scrolling=True)
+    components.iframe("http://localhost:5000/", width=1350, height=800, scrolling=True)
 # ----------------------------------------------------- #
 
 # right column
