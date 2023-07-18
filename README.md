@@ -8,9 +8,12 @@
 - [ ] make bash script file (focus on make file)
 - [x] create make file
 - [x] add to docker
-- [ ] add testing 
-- [ ] add ci/cd pipeline 
+- [ ] add testing (just add for show)
+- [ ] add ci/cd pipeline (it take alot for precommit)
 - [ ] add prefect to orchestrate (further study)
+
+![s1](reports/photo/s1.png)
+![s2](reports/photo/s2.png)
 
 ### known error
 * Bz of insuffient knowledge on docker there is error in mlflow bz localhost and host are umatched.
