@@ -32,7 +32,7 @@ def train_button_action(model):
     and show pandas profiling and 
     according to the model selection
     """
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    # mlflow.set_tracking_uri("http://localhost:5000")
     with mlflow.start_run(nested=True):
         # train the model 
         with st.spinner('Model is trian'):
